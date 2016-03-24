@@ -1,19 +1,32 @@
 package com.songhighning.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 /**
  * Created by Alex on 2016-03-17.
  */
 public class MakersActivity extends Activity{
     private static final String TAG = "alexDsMessage";
+    private Button mMainActivityToMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.makersactivity_main);
+
+        mMainActivityToMain = (Button)findViewById(R.id.MakerActivityToMainActivity);
+        mMainActivityToMain.setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MakersActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
